@@ -1,0 +1,4 @@
+.lLess , .lMore{color : blue;cursor : pointer;}
+.lLess{ display : none;}
+.lMoreDots{color : #000}
+.limitedText{margin : 40px 0}
