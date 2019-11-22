@@ -17,6 +17,15 @@
     &lt;span class="textOptions"&gt;&lt;/span&gt;
     &lt;/div&gt;
     </pre>
+    Para estabelecer limites customizados (x palavras), segue se a seguinte estrutura: (ainda em desenvolvimeto)
+    <pre>
+    &lt;div class="limitedTextCustom" id="id_genérico" ltxt="x"&gt;
+    &lt;span class="targetText"&gt;
+    Seu texto aqui. 
+    &lt;/span&gt;
+    &lt;span class="textOptions"&gt;&lt;/span&gt;
+    &lt;/div&gt;
+    </pre> 
     <h2>Textos</h2>
     <h3>Texto 1</h3>
  
@@ -48,7 +57,7 @@
     
 
       <h3>Texto limite customizado</h3>
-        <div id="customLimit1">
+        <div id="text1" class="limitedTextCustom" ltxt="20">
 
    
         <span class="targetText">Ut eget ornare lorem. Nulla vitae pharetra nunc. Etiam id tincidunt ante, sit amet congue tortor. Praesent vitae pretium nulla, vel posuere ante. Proin pellentesque erat ut leo euismod faucibus. Quisque arcu leo, scelerisque ut imperdiet et, viverra a tortor. Etiam maximus dignissim faucibus. Nullam ullamcorper interdum tellus id venenatis. Maecenas condimentum mattis risus, vel egestas ante aliquet a. Aenean molestie egestas ultricies. Nam nisl est, laoreet ut consequat ac, malesuada at tellus. In a sodales tortor. Donec feugiat ultrices dapibus.</span>

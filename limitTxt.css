@@ -1,4 +1,4 @@
-.lLess , .lMore{color : blue;cursor : pointer;}
-.lLess{ display : none;}
+.lLess , .lMore , .clLess , .clMore{color : blue;cursor : pointer;}
+.lLess , .clLess{ display : none;}
 .lMoreDots{color : #000}
 .limitedText{margin : 40px 0}

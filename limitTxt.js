@@ -1,12 +1,12 @@
 //Limit a single text
-function limitText(text , limit , t=-1){
+function limitText(text , limit , t=-1 ){
   let size = text.length;
   if(limit >= size)
     return text;
   let append = '';
-  if(t != -1){
+   if(t != -1){
     $(".textOptions").eq(t).html( "<span id='showLimited"+t+"'  class='lMore'><span class='lMoreDots'> ... </span>Ver mais</span><span id='showFull"+t+"' class='lLess'>Ver menos</span>");
-  }
+   } 
   let newText = '';
   for(i = 0 ; i <= limit ; i++){
     newText += text[i];
@@ -16,20 +16,21 @@ function limitText(text , limit , t=-1){
 //Limit a text with custom limit size
 function customLimit(target,limit){
   //todo
-  let targetAux = $("#"+target);
+  let targetAux = $("#"+target) ;
   let targetText = targetAux.find(".targetText");
   let text = $(targetText).text();
-  let textLimited = limitText(text,limit);
-  targetAux.find(".textOptions").html( " ... <a id='|customMore|-"+target+"' href='#' class='lMore'>Veja mais</a><div id='|customLess|-"+target+"' class='lLess'>Ver menos</div>");
-  //alert($(targetAux).find(".textOptions").text());
-  targetAux.html(textLimited);
+  let textLimited = limitText(text,limit );
+  targetAux.find(".textOptions").html( " ... <span id='|customMore|-"+target+"' class='clMore'>Veja mais</span><span id='|customLess|-"+target+"' class='clLess'>Ver menos</span>");
+  targetText.html(textLimited);
 }
 $(document).ready(function(){
-  let limit = 100;
+  let limit = 100; //INSERT DEFAULT LIMIT HERE
   let texts = $(".limitedText");
   let target = $(".targetText");
   let textsComplete = [];
+ // let CtextsComplete = [];
   let n = $(".limitedText").length;
+  let nc = $(".limitedTextCustom").length;
   let textLimited = [];
   //Limit all texts .targetText
   for( k = 0 ; k < n ; k++ ){
@@ -38,9 +39,10 @@ $(document).ready(function(){
     textLimited[k] = limitText(text, limit , k);
     target.eq(k).html(textLimited[k]);
   }
+
   //Show more/less
-  $(".lMore").click(function(){
-    let target = $(this).attr('id');
+  $(".lMore").click(function(){ 
+    let target = $(this).attr('id'); 
     target = target.replace("showLimited",'');
     $(".targetText").eq(target).html(textsComplete[target]);
     $(".lLess").eq(target).show();
@@ -53,7 +55,20 @@ $(document).ready(function(){
     $(".targetText").eq(target).html(textLimited[target]);
     $(".lLess").eq(target).hide();
     $(".lMore").eq(target).show();
-  })
+  });
+   
   //Custom Limits
-  customLimit("customLimit1" , 20);
+   for( k = 0 ; k < nc ; k++){ 
+  let target = $(".limitedTextCustom").eq(k);
+  let id = target.attr("id");
+  let limit = target.attr("ltxt");
+  console.log(id + limit);
+  customLimit(id , limit);
+  } 
+  //Show more/less - Custom limits
+  $(".clMore").click(function(){
+  alert($(this).attr("id"));   
+  });
+   
 })
+ 
