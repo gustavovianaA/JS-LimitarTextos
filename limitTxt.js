@@ -7,10 +7,7 @@ function limitText(text , limit , t=-1 ){
    if(t != -1){
     $(".textOptions").eq(t).html( "<span id='showLimited"+t+"'  class='lMore'><span class='lMoreDots'> ... </span>Ver mais</span><span id='showFull"+t+"' class='lLess'>Ver menos</span>");
    } 
-  let newText = '';
-  for(i = 0 ; i <= limit ; i++){
-    newText += text[i];
-  }
+  let newText = text.substr(0, limit - 1);
   return newText;
 }
 //Limit a text with custom limit size
@@ -23,8 +20,8 @@ function customLimit(target,limit){
   targetAux.find(".textOptions").html( " ... <span id='|customMore|-"+target+"' class='clMore'>Veja mais</span><span id='|customLess|-"+target+"' class='clLess'>Ver menos</span>");
   targetText.html(textLimited);
 }
-$(document).ready(function(){
-  let limit = 100; //INSERT DEFAULT LIMIT HERE
+$(function(){
+  let limit = 50; //INSERT DEFAULT LIMIT HERE
   let texts = $(".limitedText");
   let target = $(".targetText");
   let textsComplete = [];
